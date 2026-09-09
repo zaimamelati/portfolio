@@ -5,7 +5,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-gray-500 md:flex-row">
 
         <p>
-          © 2026 Your Name
+          © 2026 Melati
         </p>
 
         <p>
