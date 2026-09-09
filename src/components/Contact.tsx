@@ -35,7 +35,7 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-50 to-indigo-100 px-6 pb-12 pt-24 md:px-8"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-50 to-indigo-100 px-6 pb-12 pt-24 md:px-8"
     >
       {/* Top: eyebrow + heading + paragraph */}
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-[3fr_2fr] md:gap-10">
