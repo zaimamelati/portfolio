@@ -21,7 +21,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-[#18181b] px-6 py-32 text-white md:px-8"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-blue-100 via-purple-50 to-white px-6 pb-12 pt-24 md:px-8"
     >
       <div className="mx-auto max-w-7xl">
 
@@ -81,7 +81,7 @@ export default function Projects() {
                   {project.title}
                 </h3>
 
-                <p className="mt-4 leading-7 text-gray-400">
+                <p className="mt-4 leading-7 text-gray-800">
                   {project.description}
                 </p>
 

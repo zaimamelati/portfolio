@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen px-6 py-32 md:px-8"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-blue-100 via-purple-50 to-white px-6 pb-12 pt-24 md:px-8"
     >
       <div className="mx-auto max-w-7xl">
 
@@ -23,21 +23,13 @@ export default function About() {
 
             <h2 className="max-w-lg text-5xl font-black leading-tight tracking-[-2px] md:text-6xl">
 
-              Learning the
+              Learning, creating,
               <br />
 
-              future with{" "}
+              and growing{" "}
               <span className="text-black-400">
-                code
+                with code.
               </span>
-
-              <br />
-
-              and{" "}
-              <span className="text-black-400">
-                creativity.
-              </span>
-
             </h2>
 
           </div>
@@ -46,15 +38,40 @@ export default function About() {
           {/* RIGHT */}
           <div className="max-w-2xl">
 
-            <p className="text-2xl font-light leading-relaxed text-black-500">
-              Saya adalah siswa Rekayasa Perangkat Lunak yang tertarik pada pengembangan web, desain UI/UX, database, 
-              dan teknologi digital. Saya terus belajar dan meningkatkan kemampuan melalui tugas-tugas sekolah, latihan, 
-              dan proyek pribadi.
+            <p className="text-xl font-light leading-relaxed text-black-500">
+              Saya adalah siswa Rekayasa Perangkat Lunak yang tertarik pada pengembangan web, 
+              desain UI/UX, database, dan teknologi digital. Saya terus belajar dan meningkatkan 
+              kemampuan melalui tugas-tugas sekolah, latihan, dan proyek pribadi.
             </p>
 
-            <button className="mt-8 flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white">
+            <div className="mt-6 rounded-2xl border border-gray-200 bg-white/60 p-6">
+                <p className="mb-2 text-sm font-bold tracking-wide text-gray-500">
+                  WHAT I'M WORKING TOWARDS
+                </p>
+                <p className="text-base leading-relaxed text-gray-700">
+                  Menjadi Full Stack Developer yang bisa membangun produk digital yang
+                  benar-benar bermanfaat, sambil terus memperdalam UI/UX dan sistem
+                  backend yang scalable.
+                </p>
+              </div>
+
+            <div className="mt-8 flex gap-8">
+            <div>
+              <p className="text-3xl font-black">2</p>
+              <p className="text-sm text-gray-500">Projects</p>
+            </div>
+            <div>
+              <p className="text-3xl font-black">1+</p>
+              <p className="text-sm text-gray-500">Tahun Belajar</p>
+            </div>
+          </div>
+
+            <a           
+              href="#projects"
+              className="mt-8 inline-flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white"
+            >
               See my projects <ArrowRight size={16} />
-            </button>
+            </a>
 
           </div>
 

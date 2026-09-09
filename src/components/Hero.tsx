@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen items-center overflow-hidden px-6 pb-12 pt-24 md:px-8"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 px-6 pb-12 pt-24 md:px-8"
     >
       <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 lg:grid-cols-2">
 
@@ -26,31 +26,34 @@ export default function Hero() {
 
           {/* Heading */}
           <h1 className="text-6xl font-black leading-[0.95] tracking-[-3px] md:text-7xl">
-            FULL STACK
+            SOFTWARE ENGINEERING
             <br />
-            WEB DEVELOPER
+            STUDENT
           </h1>
 
 
           {/* Description */}
           <p className="mt-8 max-w-2xl text-base leading-8 text-black-500 md:text-lg">
-            I’m a Software Engineering student who enjoys learning
-            technology, building websites, designing interfaces, and
-            creating digital products.I enjoy turning simple ideas into useful, 
-            creative, and user-friendly digital experiences while continuing to 
-            learn and improve along the way.
+            Saya tertarik pada teknologi, pengembangan website, desain UI/UX, dan produk digital. 
+            Saya terus belajar dan mengembangkan kemampuan melalui berbagai proyek dan latihan.
           </p>
 
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
 
-            <button className="flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-medium text-white">
+            <a
+              href="#projects"
+              className="flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-medium text-white"
+            >
               View Work <ArrowRight size={16} />
-            </button>
+            </a>
 
-            <button className="flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-medium text-black">
+            <a
+              href="#contact"
+              className="flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-medium text-black"
+            >
               Contact <Send size={16} />
-            </button>
+            </a>
 
           </div>
         </div>

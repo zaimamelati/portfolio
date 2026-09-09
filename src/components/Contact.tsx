@@ -33,9 +33,12 @@ const contactRows = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="w-full px-6 py-24 md:px-16 lg:px-24">
+    <section 
+      id="contact" 
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-cyan-100 via-blue-50 to-indigo-100 px-6 pb-12 pt-24 md:px-8"
+    >
       {/* Top: eyebrow + heading + paragraph */}
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 md:grid-cols-2 md:gap-20">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-[3fr_2fr] md:gap-10">
         <div>
           <div className="mb-6 flex items-center gap-3">
             <span className="h-px w-8 bg-black" />
@@ -52,8 +55,7 @@ export default function Contact() {
 
         <div className="flex items-center">
           <p className="text-lg text-neutral-500">
-            Tertarik kolaborasi atau sekadar ingin menyapa? Pilih salah satu
-            cara di samping untuk menghubungi saya.
+            Pilih salah satu cara di samping untuk menghubungi saya.
           </p>
         </div>
       </div>
