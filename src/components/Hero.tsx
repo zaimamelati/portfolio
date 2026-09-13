@@ -72,27 +72,9 @@ export default function Hero() {
                 alt="Profile"
                 className="h-full w-full object-cover"
               />
-
-              {/* Location */}
-              <div className="absolute bottom-5 left-5 right-5 bg-white px-5 py-4 shadow-lg">
-
-                <p className="text-xs font-medium text-gray-400">
-                  BASED IN
-                </p>
-
-                <div className="flex items-center justify-between">
-                  <p className="text-lg font-bold text-black">
-                    Pasuruan, Indonesia
-                  </p>
-                  <ArrowDownRight size={18} className="text-slate-400" />
-                </div>
-
-              </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </section>
   );

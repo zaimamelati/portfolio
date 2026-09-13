@@ -13,13 +13,6 @@ const CONTACT_INFO = {
 
 const contactRows = [
   {
-    label: "WhatsApp",
-    value: "Chat langsung",
-    href: `https://wa.me/${CONTACT_INFO.whatsappNumber}?text=${encodeURIComponent(
-      CONTACT_INFO.whatsappMessage
-    )}`,
-  },
-  {
     label: "Email",
     value: CONTACT_INFO.email,
     href: `mailto:${CONTACT_INFO.email}`,
@@ -55,7 +48,7 @@ export default function Contact() {
 
         <div className="flex items-center">
           <p className="text-lg text-neutral-500">
-            Pilih salah satu cara di samping untuk menghubungi saya.
+            Pilih salah satu cara di bawah untuk menghubungi saya.
           </p>
         </div>
       </div>
