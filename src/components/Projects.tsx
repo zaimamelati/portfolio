@@ -1,8 +1,13 @@
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { projects } from "../data/projects";
+"use client";
 
-// Icon Github manual (tidak lagi tersedia sebagai export di lucide-react)
+import Image from "next/image";
+import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+
+import { projects } from "../data/projects";
+import ProjectSearch from "./ProjectSearch";
+
+// Icon Github manual
 function GithubIcon({ size = 16 }: { size?: number }) {
   return (
     <svg
@@ -18,16 +23,20 @@ function GithubIcon({ size = 16 }: { size?: number }) {
 }
 
 export default function Projects() {
+  const [search, setSearch] = useState("");
+
+  const filteredProjects = projects.filter((project) =>
+    project.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <section
       id="projects"
       className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-blue-100 via-purple-50 to-white px-6 pb-12 pt-24 md:px-8"
     >
-      <div className="mx-auto max-w-7xl">
-
+      <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
         <div className="mb-16">
-
           <div className="mb-6 flex items-center gap-3">
             <div className="h-[2px] w-8 bg-white" />
 
@@ -40,81 +49,84 @@ export default function Projects() {
             Things I’ve built.
           </h2>
 
+          {/* Search */}
+          <ProjectSearch onSearch={setSearch} />
         </div>
-
 
         {/* Project Cards */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition hover:-translate-y-2 hover:bg-white/10"
-            >
-
-              {/* Image */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/10">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover object-top transition duration-300 group-hover:scale-105"
-                />
-              </div>
-
-              <div className="p-6">
-
-                <div className="mb-6 flex items-center justify-between">
-
-                  <span className="text-sm text-gray-400">
-                    0{index + 1}
-                  </span>
-
-                  <span className="text-sm text-gray-400">
-                    {project.category}
-                  </span>
-
+        {filteredProjects.length > 0 ? (
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filteredProjects.map((project, index) => (
+              <div
+                key={project.title}
+                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
+                {/* Image */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/10">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover object-top transition duration-300 group-hover:scale-105"
+                  />
                 </div>
 
+                {/* Content */}
+                <div className="p-6">
+                  <div className="mb-6 flex items-center justify-between">
+                    <span className="text-sm text-gray-400">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                <h3 className="text-2xl font-bold">
-                  {project.title}
-                </h3>
+                    <span className="text-sm text-gray-400">
+                      {project.category}
+                    </span>
+                  </div>
 
-                <p className="mt-4 leading-7 text-gray-800">
-                  {project.description}
-                </p>
+                  <h3 className="text-2xl font-bold">
+                    {project.title}
+                  </h3>
 
-                <div className="mt-8 flex items-center gap-5">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 font-medium hover:text-gray-300"
-                    >
-                      View project <ArrowUpRight size={16} />
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-gray-400 hover:text-white"
-                    >
-                      <GithubIcon size={16} /> Github
-                    </a>
-                  )}
+                  <p className="mt-4 leading-7 text-gray-800">
+                    {project.description}
+                  </p>
+
+                  <div className="mt-8 flex items-center gap-5">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 font-medium transition hover:text-gray-500"
+                      >
+                        View project
+                        <ArrowUpRight size={16} />
+                      </a>
+                    )}
+
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-sm text-gray-400 transition hover:text-gray-700"
+                      >
+                        <GithubIcon size={16} />
+                        Github
+                      </a>
+                    )}
+                  </div>
                 </div>
-
               </div>
-
-            </div>
-          ))}
-
-        </div>
-
+            ))}
+          </div>
+        ) : (
+          <div className="py-16 text-center">
+            <p className="text-lg text-gray-500">
+              Project not found.
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );

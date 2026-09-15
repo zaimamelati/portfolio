@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import CounterApresiasi from "@/src/components/CounterApresiasi";
 
 export default function About() {
   return (
@@ -54,6 +55,19 @@ export default function About() {
                   backend yang scalable.
                 </p>
               </div>
+
+              {/* Beri Dukungan / Counter Apresiasi */}
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white/60 p-6">
+              <div>
+                <p className="mb-1 text-sm font-bold tracking-wide text-gray-500">
+                  BERI DUKUNGAN
+                </p>
+                <p className="text-sm text-gray-600">
+                  Klik tombol di samping untuk memberi apresiasi.
+                </p>
+              </div>
+              <CounterApresiasi />
+            </div>
 
             <div className="mt-8 flex gap-8">
             <div>

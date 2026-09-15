@@ -14,7 +14,7 @@ export default function Intro() {
 
   return (
     <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white transition-opacity duration-700">
-      <div className="mb-8 flex h-16 w-16 animate-bounce items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
+      <div className="mb-8 flex h-16 w-20 animate-bounce items-center justify-center rounded-2xl bg-black text-lg font-bold text-white">
         Mellatyy
       </div>
 
@@ -27,14 +27,11 @@ export default function Intro() {
       </div>
 
       <h1 className="animate-pulse text-5xl font-black tracking-tight">
-        Mell<span className="text-gray-300">.</span>
+        Mell<span className="text-gray-300"></span>
       </h1>
 
       <p className="mt-4 text-sm font-medium tracking-widest text-gray-400">
-        ZAIMA MELATI
-      </p>
-      <p className="mt-1 text-xs tracking-widest text-gray-300">
-        WEB DEVELOPER
+        ZAZA MELL
       </p>
     </div>
   );

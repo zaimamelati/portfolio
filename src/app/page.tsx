@@ -1,3 +1,4 @@
+import ProjectSearch from "../components/ProjectSearch";
 import Intro from "../components/Intro";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";

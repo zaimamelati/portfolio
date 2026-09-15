@@ -1,5 +1,5 @@
-import { ArrowDownRight, ArrowRight, Send } from "lucide-react";
-import React from "react";
+import { ArrowRight, Send } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -11,66 +11,57 @@ export default function Hero() {
 
         {/* LEFT */}
         <div>
-
           {/* Introduction */}
           <div className="mb-6 flex items-center gap-3">
             <div className="h-[2px] w-8 bg-[#18181b]" />
-
             <p className="text-lg text-gray-600">
               Hi, I'm{" "}
-              <span className="font-bold text-[#18181b]">
-                Zaima Melati
-              </span>
+              <span className="font-bold text-[#18181b]">Zaima Melati</span>
             </p>
           </div>
 
           {/* Heading */}
-          <h1 className="text-6xl font-black leading-[0.95] tracking-[-3px] md:text-7xl">
+          <h1 className="text-4xl font-black leading-[0.95] tracking-[-2px] sm:text-5xl md:text-6xl lg:text-7xl lg:tracking-[-3px]">
             SOFTWARE ENGINEERING
             <br />
             STUDENT
           </h1>
 
-
           {/* Description */}
-          <p className="mt-8 max-w-2xl text-base leading-8 text-black-500 md:text-lg">
-            Saya tertarik pada teknologi, pengembangan website, desain UI/UX, dan produk digital. 
-            Saya terus belajar dan mengembangkan kemampuan melalui berbagai proyek dan latihan.
+          <p className="mt-8 max-w-2xl text-base leading-8 text-gray-600 md:text-lg">
+            Saya tertarik pada teknologi, pengembangan website, desain UI/UX,
+            dan produk digital. Saya terus belajar dan mengembangkan
+            kemampuan melalui berbagai proyek dan latihan.
           </p>
 
           {/* Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
-
             <a
               href="#projects"
               className="flex items-center gap-2 rounded-full bg-black px-7 py-4 text-sm font-medium text-white"
             >
               View Work <ArrowRight size={16} />
             </a>
-
             <a
               href="#contact"
               className="flex items-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-medium text-black"
             >
               Contact <Send size={16} />
             </a>
-
           </div>
         </div>
 
-
         {/* RIGHT */}
         <div className="flex justify-center lg:justify-end">
-
           <div className="relative rotate-3">
-
             {/* Photo */}
-            <div className="relative h-[420px] w-[310px] overflow-hidden rounded-2xl border-2 border-[#18181b] bg-gray-200">
-
-              <img
+            <div className="relative h-[320px] w-[250px] max-w-full overflow-hidden rounded-2xl border-2 border-[#18181b] bg-gray-200 sm:h-[420px] sm:w-[310px]">
+              <Image
                 src="/foto.jpeg"
                 alt="Profile"
-                className="h-full w-full object-cover"
+                fill
+                priority
+                className="object-cover"
               />
             </div>
           </div>
