@@ -12,7 +12,6 @@ const NAV_ITEMS = [
 ];
 
 export default function Navbar() {
-  const [darkMode, setDarkMode] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
@@ -70,14 +69,6 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-2 md:gap-3">
-
-          {/* Theme */}
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="flex h-10 w-16 items-center justify-center rounded-full border border-gray-200 bg-white text-sm shadow-sm"
-          >
-            {darkMode ? "☾" : "☼"}
-          </button>
 
           {/* Resume */}
           <button className="hidden rounded-full border border-gray-200 bg-white px-6 py-3 text-sm md:block">
