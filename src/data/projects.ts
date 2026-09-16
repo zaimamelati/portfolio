@@ -1,5 +1,6 @@
 export const projects = [
   {
+    id: "1",
     title: "Manajemen Siswa",
     category: "Web App",
     description:
@@ -10,6 +11,7 @@ export const projects = [
     githubUrl: "https://github.com/zaimamelati/manajemen-siswa",
   },
   {
+    id: "2",
     title: "My App",
     category: "Web App",
     description:
@@ -20,6 +22,7 @@ export const projects = [
     githubUrl: "https://github.com/zaimamelati/nextjs-v2",
   },
   {
+    id: "3",
     title: "MenuKu",
     category: "UI/UX Design",
     description:
@@ -28,5 +31,5 @@ export const projects = [
     tags: ["Figma", "UI/UX Design"],
     liveUrl: "https://www.figma.com/proto/wUd36OpgT4VpQmW1O9IdzV/Untitled?node-id=0-1&t=0m0RMeDHQcUeb6fL-1",
     githubUrl: "https://www.figma.com/proto/wUd36OpgT4VpQmW1O9IdzV/Untitled?node-id=0-1&t=0m0RMeDHQcUeb6fL-1",
-  }
+  },
 ];

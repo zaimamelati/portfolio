@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
@@ -46,7 +47,7 @@ export default function Projects() {
           </div>
 
           <h2 className="text-5xl font-black tracking-tight md:text-6xl">
-            Things I’ve built.
+            Things I've built.
           </h2>
 
           {/* Search */}
@@ -92,6 +93,14 @@ export default function Projects() {
                   </p>
 
                   <div className="mt-8 flex items-center gap-5">
+                    <Link
+                      href={`/Proyek/${project.id}`}
+                      className="flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800"
+                    >
+                      Detail
+                      <ArrowUpRight size={16} />
+                    </Link>
+
                     {project.liveUrl && (
                       <a
                         href={project.liveUrl}
