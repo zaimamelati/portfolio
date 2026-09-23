@@ -8,8 +8,19 @@ import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
+import { supabase } from "@/lib/supabase";
+export const dynamic = "force-dynamic"
 
-export default function Home() {
+export default async function Home() {
+  const { data: proyek, error } = await supabase
+    .from("proyek")
+    .select("*")
+    .order("id", { ascending: true });
+
+  if (error) {
+    console.error("Gagal fetch proyek:", error);
+  }
+
   return (
     <>
       <Intro />
@@ -20,7 +31,7 @@ export default function Home() {
         <TechStack />
         <About />
         <Skills />
-        <Projects />
+        <Projects initialProjects={proyek ?? []} />
         <Contact />
       </main>
 

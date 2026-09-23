@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-import { projects } from "../data/projects";
 import ProjectSearch from "./ProjectSearch";
 
 // Icon Github manual
@@ -23,11 +22,28 @@ function GithubIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-export default function Projects() {
+// Tipe data sesuai kolom tabel Supabase
+type ProyekRow = {
+  id: number;
+  judul: string;
+  category: string;
+  deskripsi: string;
+  deskripsi_lengkap: string | null;
+  image: string | null;
+  teknologi: string | null;
+  link: string | null;
+  githubUrl: string | null;
+};
+
+export default function Projects({
+  initialProjects = [],
+}: {
+  initialProjects: ProyekRow[];
+}) {
   const [search, setSearch] = useState("");
 
-  const filteredProjects = projects.filter((project) =>
-    project.title.toLowerCase().includes(search.toLowerCase())
+  const filteredProjects = initialProjects.filter((project) =>
+    project.judul.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -59,17 +75,19 @@ export default function Projects() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => (
               <div
-                key={project.title}
+                key={project.id}
                 className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/10">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover object-top transition duration-300 group-hover:scale-105"
-                  />
+                  {project.image && (
+                    <Image
+                      src={project.image}
+                      alt={project.judul}
+                      fill
+                      className="object-cover object-top transition duration-300 group-hover:scale-105"
+                    />
+                  )}
                 </div>
 
                 {/* Content */}
@@ -85,11 +103,11 @@ export default function Projects() {
                   </div>
 
                   <h3 className="text-2xl font-bold">
-                    {project.title}
+                    {project.judul}
                   </h3>
 
                   <p className="mt-4 leading-7 text-gray-800">
-                    {project.description}
+                    {project.deskripsi}
                   </p>
 
                   <div className="mt-8 flex items-center gap-5">
@@ -101,9 +119,9 @@ export default function Projects() {
                       <ArrowUpRight size={16} />
                     </Link>
 
-                    {project.liveUrl && (
+                    {project.link && (
                       <a
-                        href={project.liveUrl}
+                        href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="flex items-center gap-2 font-medium transition hover:text-gray-500"
