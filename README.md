@@ -64,8 +64,9 @@ src/app/
         └── page.tsx        # Rute dinamis — detail proyek berdasarkan ID
 ```
 
-### Data Lokal
-Data proyek disimpan di `src/data/projects.ts` menggunakan interface TypeScript, dan diimpor oleh komponen `Projects.tsx` serta halaman detail dinamis.
+
+### Sumber Data
+Sejak Pertemuan 03, data proyek dan pesan kontak diambil langsung dari database cloud **Supabase (PostgreSQL)** menggunakan `@supabase/supabase-js`, menggantikan data statis yang sebelumnya ada di `src/data/projects.ts`.
 
 ### Rute Dinamis `/proyek/[id]`
 - URL seperti `/proyek/1`, `/proyek/2`, hingga `/proyek/100` ditangani oleh **satu file** `app/Proyek/[id]/page.tsx`
@@ -76,11 +77,42 @@ Contoh pengujian rute 404: buka `/proyek/999` (ID yang tidak terdaftar) untuk me
 
 ---
 
+## 🗄️ Struktur Database (Supabase)
+
+### Tabel `proyek`
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| id | int8 | Primary key, auto increment |
+| created_at | timestamptz | Waktu data dibuat |
+| judul | text | Judul proyek |
+| category | text | Kategori proyek |
+| deskripsi | text | Deskripsi singkat, ditampilkan di card |
+| deskripsi_lengkap | text | Deskripsi lengkap, ditampilkan di halaman detail |
+| image | text | Path/URL gambar proyek |
+| teknologi | text | Daftar teknologi yang dipakai |
+| link | text | URL live demo/project |
+| githubUrl | text | URL repository Github (bisa kosong) |
+
+**RLS:** aktif, policy `SELECT` untuk role `anon` dan `authenticated`.
+
+### Tabel `pesan_kontak`
+| Kolom | Tipe | Keterangan |
+|---|---|---|
+| id | int8 | Primary key, auto increment |
+| created_at | timestamptz | Waktu pesan dikirim |
+| nama | text | Nama pengirim |
+| pesan | text | Isi pesan |
+
+**RLS:** aktif, policy `INSERT` untuk role `anon` dan `authenticated`.
+
+---
+
 ## 🛠️ Teknologi yang Digunakan
 
 - **Next.js 15** (App Router, Server & Client Components)
 - **TypeScript**
 - **Tailwind CSS**
+- **Supabase** (PostgreSQL, Row Level Security)
 - **lucide-react** (ikon)
 
 ---
@@ -102,7 +134,7 @@ http://localhost:3000
 
 ## 📌 Catatan Pengembangan Selanjutnya
 
-Project ini akan dihubungkan dengan **database cloud Supabase (PostgreSQL)** pada pertemuan berikutnya, untuk memungkinkan penyimpanan data proyek secara dinamis dan form kontak yang tersambung ke backend.
+Project ini telah terhubung dengan **database cloud Supabase (PostgreSQL)** sejak Pertemuan 03 — data proyek diambil secara dinamis dari tabel `proyek`, dan form kontak berhasil insert data ke tabel `pesan_kontak`.
 
 ---
 
