@@ -21,7 +21,7 @@ export default async function ProyekDetailPage({
   const { data: proyek, error } = await supabase
     .from('proyek')
     .select('*')
-    .eq('id', id)
+    .order('id')
     .single<ProyekRow>();
 
   if (error || !proyek) {
