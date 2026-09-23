@@ -1,4 +1,4 @@
-import { supabase } from '../../../lib/supabase';
+import { supabase } from '@/lib/supabase';
 
 type ProyekRow = {
   id: number;
@@ -21,7 +21,7 @@ export default async function ProyekDetailPage({
   const { data: proyek, error } = await supabase
     .from('proyek')
     .select('*')
-    .order('id')
+    .eq('id', id)
     .single<ProyekRow>();
 
   if (error || !proyek) {
