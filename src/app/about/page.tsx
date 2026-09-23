@@ -1,4 +1,4 @@
-import CounterApresiasi from "@/src/components/CounterApresiasi";
+import CounterApresiasi from "@/components/CounterApresiasi";
 
 export default function About() {
   return (
