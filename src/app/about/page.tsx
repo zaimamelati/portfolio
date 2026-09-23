@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import CounterApresiasi from "@/components/CounterApresiasi";
 
 export default function About() {
