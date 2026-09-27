@@ -1,4 +1,7 @@
+@custom-variant dark (&:where(.dark, .dark *));
 @import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 html {
   scroll-behavior: smooth;
@@ -8,6 +11,12 @@ body {
   margin: 0;
   background: #fafafa;
   color: #18181b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background: #0a0a0a;
+  color: #fafafa;
 }
 
 ::selection {
@@ -15,11 +24,23 @@ body {
   color: white;
 }
 
+.dark ::selection {
+  background: #fafafa;
+  color: #18181b;
+}
+
 /* Grid background */
 .grid-bg {
   background-image:
     linear-gradient(to right, #e5e7eb 1px, transparent 1px),
     linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .grid-bg {
+  background-image:
+    linear-gradient(to right, #27272a 1px, transparent 1px),
+    linear-gradient(to bottom, #27272a 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -34,8 +55,17 @@ body {
   color: #18181b;
 }
 
+.dark .nav-link:hover {
+  color: #fafafa;
+}
+
 .nav-link.active {
   color: #18181b;
   border-bottom: 1px solid #18181b;
   padding-bottom: 8px;
+}
+
+.dark .nav-link.active {
+  color: #fafafa;
+  border-bottom: 1px solid #fafafa;
 }

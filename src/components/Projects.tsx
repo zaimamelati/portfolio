@@ -49,20 +49,20 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-blue-100 via-purple-50 to-white px-6 pb-12 pt-24 md:px-8"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-blue-100 via-purple-50 to-white px-6 pb-12 pt-24 md:px-8 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
     >
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
         <div className="mb-16">
           <div className="mb-6 flex items-center gap-3">
-            <div className="h-[2px] w-8 bg-white" />
+           <div className="h-[2px] w-8 bg-white dark:bg-white" />
 
-            <p className="text-sm font-bold tracking-wider">
+            <p className="text-sm font-bold tracking-wider dark:text-white">
               PROJECTS
             </p>
           </div>
 
-          <h2 className="text-5xl font-black tracking-tight md:text-6xl">
+          <h2 className="text-5xl font-black tracking-tight md:text-6xl dark:text-white">
             Things I've built.
           </h2>
 
@@ -76,7 +76,7 @@ export default function Projects({
             {filteredProjects.map((project, index) => (
               <div
                 key={project.id}
-                className="group overflow-hidden rounded-2xl border border-white/10 bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="group overflow-hidden rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               >
                 {/* Image */}
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/10">
@@ -97,23 +97,23 @@ export default function Projects({
                       {String(index + 1).padStart(2, "0")}
                     </span>
 
-                    <span className="text-sm text-gray-400">
+                    <span className="text-sm text-gray-400 dark:text-gray-500">
                       {project.category}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold">
+                  <h3 className="text-2xl font-bold dark:text-white">
                     {project.judul}
                   </h3>
 
-                  <p className="mt-4 leading-7 text-gray-800">
+                  <p className="mt-4 leading-7 text-gray-800 dark:text-gray-300">
                     {project.deskripsi}
                   </p>
 
                   <div className="mt-8 flex items-center gap-5">
                     <Link
                       href={`/Proyek/${project.id}`}
-                      className="flex items-center gap-2 text-sm font-semibold text-blue-600 transition hover:text-blue-800"
+                      className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"
                     >
                       Detail
                       <ArrowUpRight size={16} />
@@ -149,7 +149,7 @@ export default function Projects({
           </div>
         ) : (
           <div className="py-16 text-center">
-            <p className="text-lg text-gray-500">
+            <p className="text-lg text-gray-500 dark:text-gray-400">
               Project not found.
             </p>
           </div>

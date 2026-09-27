@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
 
 const NAV_ITEMS = [
@@ -13,6 +13,18 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
+
+  const toggleTheme = () => {
+    const newIsDark = !isDark;
+    setIsDark(newIsDark);
+    document.documentElement.classList.toggle("dark", newIsDark);
+    localStorage.setItem("theme", newIsDark ? "dark" : "light");
+  };
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) =>
@@ -69,12 +81,26 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-2 md:gap-3">
-
-          {/* Resume */}
-          <button className="hidden rounded-full border border-gray-200 bg-white px-6 py-3 text-sm md:block">
-            Resume
+          
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle dark mode"
+            className="flex h-10 w-16 items-center justify-center rounded-full border border-gray-200 bg-white text-lg text-gray-900 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+          >
+            {isDark ? <Sun size={16} /> : <Moon size={16} />}
           </button>
 
+          {/* Resume */}
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded-full border border-gray-200 bg-white px-6 py-3 text-sm text-gray-900 md:block dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+          >
+            Resume
+          </a>         
+          
           {/* Hire */}
           <button className="flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white">
             Hire Me <ArrowUpRight size={16} />

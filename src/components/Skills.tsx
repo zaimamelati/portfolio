@@ -9,13 +9,13 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 px-6 py-32 md:px-8"
+      className="min-h-screen bg-gradient-to-br from-blue-200 via-purple-200 to-pink-200 px-6 py-32 md:px-8 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-16">
           <div className="mb-6 flex items-center gap-3">
-            <div className="h-[2px] w-8 bg-[#18181b]" />
-            <p className="text-sm font-bold tracking-wider">MY SKILLS</p>
+            <div className="h-[2px] w-8 bg-[#18181b] dark:bg-white" />
+            <p className="text-sm font-bold tracking-wider dark:text-white">MY SKILLS</p>
           </div>
         </div>
 
@@ -23,13 +23,13 @@ export default function Skills() {
           {skills.map((skill, index) => (
             <div
               key={skill.name}
-              className="group relative overflow-hidden rounded-2xl border border-white/50 bg-white/70 p-6 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl border border-white/50 dark:border-white/10 bg-white/70 dark:bg-white/5 p-6 transition duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
-              <span className="text-xs font-bold text-gray-400">
+              <span className="text-xs font-bold text-gray-400 dark:text-gray-500">
                 0{index + 1}
               </span>
 
-              <h3 className="mt-6 text-xl font-bold text-[#18181b]">
+              <h3 className="mt-6 text-xl font-bold text-[#18181b] dark:text-white">
                 {skill.name}
               </h3>
 
