@@ -112,7 +112,7 @@ export default function Projects({
 
                   <div className="mt-8 flex items-center gap-5">
                     <Link
-                      href={`/Proyek/${project.id}`}
+                      href={`/proyek/${project.id}`}
                       className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"
                     >
                       Detail

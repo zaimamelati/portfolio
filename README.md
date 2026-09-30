@@ -69,7 +69,7 @@ src/app/
 Sejak Pertemuan 03, data proyek dan pesan kontak diambil langsung dari database cloud **Supabase (PostgreSQL)** menggunakan `@supabase/supabase-js`, menggantikan data statis yang sebelumnya ada di `src/data/projects.ts`.
 
 ### Rute Dinamis `/proyek/[id]`
-- URL seperti `/proyek/1`, `/proyek/2`, hingga `/proyek/100` ditangani oleh **satu file** `app/Proyek/[id]/page.tsx`
+- URL seperti `/proyek/1`, `/proyek/2`, hingga `/proyek/100` ditangani oleh **satu file** `app/proyek/[id]/page.tsx`
 - Parameter `id` bersifat asinkron (`Promise<{ id: string }>`), sesuai standar Next.js 15+, sehingga wajib diambil dengan `await params`
 - Jika `id` tidak ditemukan di `data/projects.ts`, fungsi `notFound()` dipanggil dan Next.js otomatis mengarahkan ke `app/not-found.tsx`
 
