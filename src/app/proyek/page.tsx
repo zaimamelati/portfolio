@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { supabase } from '@/lib/supabase';
 
 type ProyekRow = {
@@ -50,10 +51,12 @@ export default async function ProyekListPage() {
             >
               {proyek.image && (
                 <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                  <img
+                  <Image
                     src={proyek.image}
-                    alt={proyek.judul}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+                    alt={`Tampilan proyek ${proyek.judul}`}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition duration-300 group-hover:scale-105"
                   />
                 </div>
               )}
