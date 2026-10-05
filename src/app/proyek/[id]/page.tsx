@@ -1,5 +1,12 @@
 import Link from 'next/link';
+import Image from 'next/image';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { supabase } from '@/lib/supabase';
+
+interface DetailProps {
+  params: Promise<{ id: string }>;
+}
 
 type ProyekRow = {
   id: number;
@@ -9,72 +16,68 @@ type ProyekRow = {
   image: string | null;
 };
 
-export default async function ProyekListPage() {
-  const { data: proyekList, error } = await supabase
+export async function generateMetadata({ params }: DetailProps): Promise<Metadata> {
+  const { id } = await params;
+  const { data: proyek } = await supabase
+    .from('proyek')
+    .select('judul, deskripsi')
+    .eq('id', id)
+    .single();
+
+  if (!proyek) {
+    return { title: 'Proyek Tidak Ditemukan' };
+  }
+
+  return {
+    title: proyek.judul,
+    description: proyek.deskripsi,
+    openGraph: {
+      title: proyek.judul,
+      description: proyek.deskripsi,
+    },
+  };
+}
+
+export default async function ProyekDetailPage({ params }: DetailProps) {
+  const { id } = await params;
+  const { data: proyek } = await supabase
     .from('proyek')
     .select('id, judul, category, deskripsi, image')
-    .order('id', { ascending: false })
-    .returns<ProyekRow[]>();
+    .eq('id', id)
+    .single<ProyekRow>();
 
-  if (error) {
-    return (
-      <main className="py-20 text-center">
-        <h1 className="text-2xl font-bold text-slate-900">
-          Gagal memuat proyek
-        </h1>
-        <p className="mt-2 text-gray-500">{error.message}</p>
-      </main>
-    );
+  if (!proyek) {
+    notFound();
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
-      <div className="mb-12">
-        <span className="mb-4 inline-block rounded-full bg-slate-100 px-3 py-1 text-sm text-slate-600">
-          PROYEK
-        </span>
-        <h1 className="text-4xl font-black tracking-tight text-slate-900">
-          Semua Proyek
-        </h1>
-      </div>
+    <main className="mx-auto max-w-3xl px-6 py-16">
+      <Link href="/proyek" className="mb-8 inline-block text-sm text-slate-600 hover:underline">
+        ← Kembali ke semua proyek
+      </Link>
 
-      {(!proyekList || proyekList.length === 0) ? (
-        <p className="text-gray-500">Belum ada proyek yang ditambahkan.</p>
-      ) : (
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {proyekList.map((proyek) => (
-            <Link
-              key={proyek.id}
-              href={`/proyek/${proyek.id}`}
-              className="group overflow-hidden rounded-2xl border border-slate-200 bg-white transition hover:-translate-y-1 hover:shadow-lg"
-            >
-              {proyek.image && (
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-slate-100">
-                  <img
-                    src={proyek.image}
-                    alt={proyek.judul}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-                  />
-                </div>
-              )}
-
-              <div className="p-6">
-                <span className="mb-3 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">
-                  {proyek.category}
-                </span>
-
-                <h2 className="mb-2 text-xl font-bold text-slate-900">
-                  {proyek.judul}
-                </h2>
-
-                <p className="line-clamp-2 text-sm text-gray-500">
-                  {proyek.deskripsi}
-                </p>
-              </div>
-            </Link>
-          ))}
+      {proyek.image && (
+        <div className="relative mb-8 aspect-[16/10] w-full overflow-hidden rounded-2xl bg-slate-100">
+          <Image
+            src={proyek.image}
+            alt={`Tampilan proyek ${proyek.judul}`}
+            fill
+            sizes="(min-width: 768px) 768px, 100vw"
+            priority
+            className="object-cover"
+          />
         </div>
       )}
+
+      <span className="mb-3 inline-block rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">
+        {proyek.category}
+      </span>
+
+      <h1 className="mb-4 text-4xl font-black tracking-tight text-slate-900">
+        {proyek.judul}
+      </h1>
+
+      <p className="text-gray-600">{proyek.deskripsi}</p>
     </main>
   );
 }
