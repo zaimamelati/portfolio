@@ -53,13 +53,13 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-md">
+    <nav className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/80">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-8">
 
         {/* Logo */}
         <a
           href="#home"
-          className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#18181b] text-sm font-bold text-white"
+          className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-300 text-sm font-bold text-black"
         >
           Mell
         </a>
@@ -81,7 +81,7 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-2 md:gap-3">
-          
+
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
@@ -99,10 +99,10 @@ export default function Navbar() {
             className="hidden rounded-full border border-gray-200 bg-white px-6 py-3 text-sm text-gray-900 md:block dark:border-gray-700 dark:bg-gray-800 dark:text-white"
           >
             Resume
-          </a>         
-          
+          </a>
+
           {/* Hire */}
-          <button className="flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white">
+          <button className="flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white dark:bg-white dark:text-black">
             Hire Me <ArrowUpRight size={16} />
           </button>
 

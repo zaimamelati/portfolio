@@ -9,7 +9,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-100 px-6 py-32 md:px-8 dark:bg-slate-900"
+      className="min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-100 px-6 py-32 md:px-8 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
     >
       <div className="mx-auto max-w-6xl">
         <div className="mb-16">

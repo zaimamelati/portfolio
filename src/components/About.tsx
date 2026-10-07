@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-blue-100 via-white to-blue-100 px-6 pb-12 pt-24 md:px-8 dark:bg-slate-900"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-blue-100 via-white to-blue-100 px-6 pb-12 pt-24 md:px-8 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
     >
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
