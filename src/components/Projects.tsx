@@ -49,13 +49,13 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-blue-100 via-purple-50 to-white px-6 pb-12 pt-24 md:px-8 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-blue-100 via-white to-blue-100 px-6 pb-12 pt-24 md:px-8 dark:bg-slate-900"
     >
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
         <div className="mb-16">
           <div className="mb-6 flex items-center gap-3">
-           <div className="h-[2px] w-8 bg-white dark:bg-white" />
+            <div className="h-[2px] w-8 bg-[#18181b] dark:bg-white" />
 
             <p className="text-sm font-bold tracking-wider dark:text-white">
               PROJECTS
