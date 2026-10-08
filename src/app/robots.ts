@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow:'/admin',
         },
-        sitemap: 'https://portofolio-zaimamelati.vercel.app/sitemap.xml',
+        sitemap: 'https://www.zaimamelati.my.id/sitemap.xml',
     };
 }

@@ -29,10 +29,11 @@ export default function About() {
           {/* RIGHT */}
           <div className="max-w-2xl">
             <p className="text-xl font-light leading-relaxed text-black-500 dark:text-gray-300">
-              Saya adalah siswa Rekayasa Perangkat Lunak yang tertarik pada
-              pengembangan web, desain UI/UX, database, dan teknologi digital.
-              Saya terus belajar dan meningkatkan kemampuan melalui tugas-tugas
-              sekolah, latihan, dan proyek pribadi.
+              Saya adalah Zaima Melati Putri, siswa Rekayasa Perangkat Lunak
+              di SMK Negeri 1 Pasuruan yang tertarik pada pengembangan web,
+              desain UI/UX, database, dan teknologi digital. Saya terus belajar
+              dan meningkatkan kemampuan melalui tugas sekolah, latihan,
+              dan proyek pribadi.
             </p>
 
             <div className="mt-6 rounded-2xl border border-gray-200 dark:border-gray-700 bg-white/60 dark:bg-white/5 p-6">

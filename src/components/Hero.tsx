@@ -22,16 +22,17 @@ export default function Hero() {
 
           {/* Heading */}
           <h1 className="text-4xl font-black leading-[0.95] tracking-[-2px] sm:text-5xl md:text-6xl lg:text-7xl lg:tracking-[-3px] dark:text-white">
-            SOFTWARE ENGINEERING
+            ZAIMA MELATI
             <br />
-            STUDENT
-          </h1>
+              SOFTWARE ENGINEERING STUDENT
+            </h1>
 
           {/* Description */}
           <p className="mt-8 max-w-2xl text-base leading-8 text-gray-600 md:text-lg dark:text-gray-300">
-            Saya tertarik pada teknologi, pengembangan website, desain UI/UX,
-            dan produk digital. Saya terus belajar dan mengembangkan
-            kemampuan melalui berbagai proyek dan latihan.
+            Saya adalah siswa Rekayasa Perangkat Lunak di SMK Negeri 1 Pasuruan
+            yang tertarik pada web development, UI/UX design, database, dan
+            teknologi digital. Saya terus belajar dan mengembangkan kemampuan
+            melalui tugas sekolah, latihan, dan berbagai proyek.
           </p>
 
           {/* Buttons */}
