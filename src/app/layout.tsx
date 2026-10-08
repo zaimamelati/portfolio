@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://zaimamelati.my.id"),
 
   title: {
-    default: "Zaima Melati Putri | Portfolio",
+    default: "Zaima Melati || Software Engineering",
     template: "%s | Zaima Melati Putri",
   },
 
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Zaima Melati Putri | Portfolio",
+    title: "Zaima Melati || Software Engineering",
     description:
       "Portfolio Zaima Melati Putri, siswa Rekayasa Perangkat Lunak yang tertarik pada web development, UI/UX design, database, dan teknologi digital.",
     url: "https://zaimamelati.my.id",
