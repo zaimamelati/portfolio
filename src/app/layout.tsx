@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: "Zaima Melati || Software Engineering",
     description:
       "Portfolio Zaima Melati Putri, siswa Rekayasa Perangkat Lunak yang tertarik pada web development, UI/UX design, database, dan teknologi digital.",
-    url: "https://zaimamelati.my.id",
+    url: "https://www.zaimamelati.my.id",
     siteName: "Zaima Melati Putri Portfolio",
     locale: "id_ID",
     type: "website",

@@ -19,7 +19,7 @@ export default async function Image() {
                     fontWeight: 700,
                 }}
             >
-                Zaima Melati - Portofolio
+                Zaima Melati || Software Engineering
             </div>
         ),
     );
