@@ -22,7 +22,6 @@ export default function Hero() {
 
           {/* Heading */}
           <h1 className="text-4xl font-black leading-[0.95] tracking-[-2px] sm:text-5xl md:text-6xl lg:text-7xl lg:tracking-[-3px] dark:text-white">
-            ZAIMA MELATI
             <br />
               SOFTWARE ENGINEERING STUDENT
             </h1>

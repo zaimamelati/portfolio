@@ -63,7 +63,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Zaima Melati Putri | Portfolio",
+    title: "Zaima Melati || Software Engineering",
     description:
       "Portfolio Zaima Melati Putri, siswa Rekayasa Perangkat Lunak yang tertarik pada web development, UI/UX design, database, dan teknologi digital.",
   },
