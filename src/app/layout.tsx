@@ -4,14 +4,14 @@ import VideoBackground from "@/components/VideoBackground";
 import MusicPlayer from "@/components/MusicPlayer";
 
 export const metadata: Metadata = {
-  // 1. Wajib tambahkan ini agar Next.js bisa membentuk Absolute URL untuk gambar OpenGraph
+  // Wajib ditambahkan agar Next.js bisa membentuk Absolute URL untuk gambar OpenGraph
   metadataBase: new URL("https://www.zaimamelati.my.id"),
 
   title: "Zaima Melati - Software Engineering Student",
   description:
     "Portofolio Zaima Melati, siswa Rekayasa Perangkat Lunak SMKN 1 Pasuruan yang berfokus pada Web Development dan UI/UX Design.",
 
-  // 2. Metadata OpenGraph untuk WhatsApp / Facebook / LinkedIn
+  // Metadata OpenGraph untuk WhatsApp / Facebook / LinkedIn
   openGraph: {
     title: "Zaima Melati - Software Engineering Student",
     description:
@@ -49,11 +49,15 @@ export default function RootLayout({
         />
       </head>
 
-      <body>
+      <body className="relative min-h-screen bg-[#fafafa] text-[#18181b] antialiased selection:bg-sky-300 selection:text-black dark:bg-[#0f172a] dark:text-white">
         <VideoBackground />
-        {children}
         
-        {/* Pemutar musik */}
+        {/* Konten Utama Halaman */}
+        <div className="relative z-10 flex min-h-screen flex-col">
+          {children}
+        </div>
+        
+        {/* Pemutar musik ditaruh di dalam body agar z-index nya aman dan tampil melayang */}
         <MusicPlayer />
       </body>
     </html>

@@ -1,69 +1,43 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { Music, Volume2, VolumeX } from "lucide-react";
 
 export default function MusicPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.volume = 1.0; // Memastikan volume audio maksimal
-    }
-  }, []);
-
-  const togglePlay = async () => {
+  const togglePlay = () => {
     if (!audioRef.current) return;
 
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
     } else {
-      try {
-        // Reset waktu ke awal jika sebelumnya berhenti
-        audioRef.current.currentTime = audioRef.current.currentTime || 0;
-        await audioRef.current.play();
+      audioRef.current.play().then(() => {
         setIsPlaying(true);
-      } catch (error) {
-        console.error("Gagal memutar lagu:", error);
-        alert("Audio tidak dapat diputar. Pastikan file /music.mp3 ada dan tidak rusak!");
-        setIsPlaying(false);
-      }
+      }).catch((err) => {
+        console.error("Gagal memutar audio:", err);
+      });
     }
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <audio
-        ref={audioRef}
-        src="/music.mp3"
-        preload="auto"
-        loop
-        onError={(e) => {
-          console.error("Error memuat file audio:", e);
-        }}
-      />
+    <div className="fixed bottom-5 right-5 z-[99999] pointer-events-auto">
+      <audio ref={audioRef} src="/music.mp3" preload="auto" loop />
 
       <button
         onClick={togglePlay}
-        className={`flex items-center gap-3 rounded-full border px-5 py-2.5 text-xs font-semibold shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 active:scale-95 ${
+        aria-label="Toggle Music"
+        className={`flex items-center gap-2 rounded-full px-4 py-3 shadow-2xl transition-all duration-300 font-semibold text-xs ${
           isPlaying
-            ? "border-sky-400 bg-sky-500/20 text-sky-700 dark:text-sky-300 animate-pulse"
-            : "border-gray-300 bg-white/80 text-gray-800 dark:border-gray-700 dark:bg-black/70 dark:text-gray-200"
+            ? "bg-sky-500 text-white shadow-sky-500/50"
+            : "bg-black text-white dark:bg-white dark:text-black shadow-black/30"
         }`}
       >
-        <Music
-          size={16}
-          className={isPlaying ? "animate-spin text-sky-500" : ""}
-          style={{ animationDuration: "3s" }}
-        />
-        <span>{isPlaying ? "Playing Music" : "Play Music"}</span>
-        {isPlaying ? (
-          <Volume2 size={16} className="text-sky-500" />
-        ) : (
-          <VolumeX size={16} />
-        )}
+        <Music size={18} className={isPlaying ? "animate-spin" : ""} />
+        <span>{isPlaying ? "Playing..." : "Play Music"}</span>
+        {isPlaying ? <Volume2 size={16} /> : <VolumeX size={16} />}
       </button>
     </div>
   );

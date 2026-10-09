@@ -48,31 +48,32 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative flex min-h-screen items-center overflow-hidden"
+      className="relative flex min-h-screen items-center overflow-hidden px-4 py-16 pb-28 md:px-8"
     >
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
-        <div className="mb-16">
-          <div className="mb-6 flex items-center gap-3">
-            <div className="h-[2px] w-8 bg-[#18181b] dark:bg-white" />
-            <p className="text-sm font-bold tracking-wider dark:text-white">
+        <div className="mb-8 sm:mb-16">
+          <div className="mb-3 flex items-center gap-2.5 sm:mb-6 sm:gap-3">
+            <div className="h-[2px] w-6 bg-[#18181b] sm:w-8 dark:bg-white" />
+            <p className="text-xs font-bold tracking-wider sm:text-sm dark:text-white">
               PROJECTS
             </p>
           </div>
 
-          <h2 className="text-5xl font-black tracking-tight md:text-6xl dark:text-white">
-            Things I've built.
+          <h2 className="text-3xl font-black tracking-tight sm:text-5xl md:text-6xl dark:text-white">
+            Things I&apos;ve built.
           </h2>
 
           {/* Search */}
-          <ProjectSearch onSearch={setSearch} />
+          <div className="mt-4 sm:mt-6">
+            <ProjectSearch onSearch={setSearch} />
+          </div>
         </div>
 
         {/* Project Cards */}
         {filteredProjects.length > 0 ? (
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project, index) => {
-              // Mengubah string teknologi dari Supabase menjadi Array
               const techList = project.teknologi
                 ? project.teknologi.split(",").map((tech) => tech.trim())
                 : [];
@@ -80,7 +81,7 @@ export default function Projects({
               return (
                 <div
                   key={project.id}
-                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-white/20 dark:border-white/20 bg-white/40 dark:bg-black/40 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-white/20 bg-white/40 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/20 dark:bg-black/40"
                 >
                   <div>
                     {/* Image */}
@@ -96,32 +97,32 @@ export default function Projects({
                     </div>
 
                     {/* Content */}
-                    <div className="p-6">
-                      <div className="mb-6 flex items-center justify-between">
-                        <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                    <div className="p-4 sm:p-6">
+                      <div className="mb-3 flex items-center justify-between sm:mb-6">
+                        <span className="text-xs font-bold text-gray-800 sm:text-sm dark:text-gray-200">
                           {String(index + 1).padStart(2, "0")}
                         </span>
 
-                        <span className="text-sm font-semibold text-gray-800 dark:text-gray-300">
+                        <span className="text-xs font-semibold text-gray-800 sm:text-sm dark:text-gray-300">
                           {project.category}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-black text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-black text-gray-900 sm:text-2xl dark:text-white">
                         {project.judul}
                       </h3>
 
-                      <p className="mt-4 leading-7 font-medium text-gray-900 dark:text-gray-200">
+                      <p className="mt-2 text-xs font-medium leading-relaxed text-gray-900 sm:mt-4 sm:text-sm sm:leading-7 dark:text-gray-200">
                         {project.deskripsi}
                       </p>
 
                       {/* Section Teknologi / Tags */}
                       {techList.length > 0 && (
-                        <div className="mt-6 flex flex-wrap gap-2">
+                        <div className="mt-4 flex flex-wrap gap-1.5 sm:mt-6 sm:gap-2">
                           {techList.map((tech, idx) => (
                             <span
                               key={idx}
-                              className="rounded-md bg-black/10 dark:bg-white/10 border border-black/10 dark:border-white/20 px-2.5 py-1 text-xs font-bold text-gray-900 dark:text-gray-100"
+                              className="rounded-md border border-black/10 bg-black/10 px-2 py-0.5 text-[11px] font-bold text-gray-900 sm:px-2.5 sm:py-1 sm:text-xs dark:border-white/20 dark:bg-white/10 dark:text-gray-100"
                             >
                               {tech}
                             </span>
@@ -132,13 +133,13 @@ export default function Projects({
                   </div>
 
                   {/* Actions Link */}
-                  <div className="p-6 pt-0 mt-4 flex items-center gap-5">
+                  <div className="flex flex-wrap items-center gap-4 p-4 pt-0 sm:gap-5 sm:p-6 sm:pt-0">
                     <Link
                       href={`/proyek/${project.id}`}
-                      className="flex items-center gap-2 text-sm font-bold text-gray-800 dark:text-gray-300 transition hover:text-black dark:hover:text-white"
+                      className="flex items-center gap-1.5 text-xs font-bold text-gray-800 transition hover:text-black sm:text-sm dark:text-gray-300 dark:hover:text-white"
                     >
                       Detail
-                      <ArrowUpRight size={16} />
+                      <ArrowUpRight size={14} />
                     </Link>
 
                     {project.link && (
@@ -146,10 +147,10 @@ export default function Projects({
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-extrabold text-gray-900 dark:text-white transition hover:opacity-80"
+                        className="flex items-center gap-1.5 text-xs font-extrabold text-gray-900 transition hover:opacity-80 sm:text-sm dark:text-white"
                       >
                         View project
-                        <ArrowUpRight size={16} />
+                        <ArrowUpRight size={14} />
                       </a>
                     )}
 
@@ -158,9 +159,9 @@ export default function Projects({
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm font-bold text-gray-800 dark:text-gray-300 transition hover:text-black dark:hover:text-white"
+                        className="flex items-center gap-1.5 text-xs font-bold text-gray-800 transition hover:text-black sm:text-sm dark:text-gray-300 dark:hover:text-white"
                       >
-                        <GithubIcon size={16} />
+                        <GithubIcon size={14} />
                         Github
                       </a>
                     )}
@@ -171,7 +172,7 @@ export default function Projects({
           </div>
         ) : (
           <div className="py-16 text-center">
-            <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+            <p className="text-sm font-semibold text-gray-700 sm:text-lg dark:text-gray-300">
               Project not found.
             </p>
           </div>

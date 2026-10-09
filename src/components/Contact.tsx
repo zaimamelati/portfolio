@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-// ==== DATA KAMU ====
 const CONTACT_INFO = {
   whatsappMessage: "Halo, saya tertarik untuk berdiskusi tentang proyek.",
   email: "zaimamelati@email.com",
@@ -54,69 +53,71 @@ export default function Contact() {
   return (
     <section 
       id="contact" 
-      className="relative flex min-h-screen flex-col justify-center overflow-hidden"
+      className="relative flex min-h-screen flex-col justify-center overflow-hidden px-4 py-16 pb-32 md:px-8"
     >
       {/* Top: eyebrow + heading + paragraph */}
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-[3fr_2fr] md:gap-10">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-[3fr_2fr] md:gap-10">
         <div>
-          <div className="mb-6 flex items-center gap-3">
-            <span className="h-[2px] w-8 bg-black dark:bg-white" />
-            <span className="text-sm font-extrabold tracking-wider text-black dark:text-white">
+          <div className="mb-3 flex items-center gap-2.5 sm:mb-6 sm:gap-3">
+            <span className="h-[2px] w-6 bg-black sm:w-8 dark:bg-white" />
+            <span className="text-xs font-extrabold tracking-wider text-black sm:text-sm dark:text-white">
               CONTACT
             </span>
           </div>
-          <h2 className="text-5xl font-black leading-[1.05] md:text-6xl text-gray-900 dark:text-white">
+          <h2 className="text-3xl font-black leading-tight text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
             Let&apos;s build
             <br />
             something.
           </h2>
         </div>
 
-        <div className="flex items-center">
-          <p className="text-lg font-bold text-gray-800 dark:text-gray-200">
-            Pilih salah satu cara di bawah untuk menghubungi saya.
+        <div className="flex items-center pt-2 md:pt-0">
+          <p className="text-sm font-bold text-gray-800 sm:text-lg dark:text-gray-200">
+            Pilih salah satu cara di bawah untuk mehubungi saya.
           </p>
         </div>
       </div>
 
       {/* Bottom: full-width link rows */}
-      <div className="mx-auto mt-16 max-w-6xl w-full">
+      <div className="mx-auto mt-8 w-full max-w-6xl sm:mt-12">
         {contactRows.map(({ label, value, href }) => (
           <a
             key={label}
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="group flex items-center justify-between border-b-2 border-neutral-300 py-6 first:border-t-2 dark:border-gray-700"
+            className="group flex items-center justify-between border-b-2 border-neutral-300 py-4 first:border-t-2 sm:py-6 dark:border-gray-700"
           >
-            <div className="flex items-baseline gap-4">
-              <span className="text-2xl font-black tracking-tight text-gray-900 transition-transform duration-200 group-hover:translate-x-2 dark:text-white">
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-4">
+              <span className="text-lg font-black tracking-tight text-gray-900 transition-transform duration-200 group-hover:translate-x-2 sm:text-2xl dark:text-white">
                 {label}
               </span>
-              <span className="text-base font-bold text-gray-700 dark:text-gray-300">{value}</span>
+              <span className="text-xs font-bold text-gray-700 sm:text-base dark:text-gray-300">
+                {value}
+              </span>
             </div>
             <ArrowUpRight
-              size={24}
-              className="shrink-0 stroke-[2.5] text-gray-800 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black dark:text-gray-300 dark:group-hover:text-white"
+              size={20}
+              className="shrink-0 stroke-[2.5] text-gray-800 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-black sm:size-6 dark:text-gray-300 dark:group-hover:text-white"
             />
           </a>
         ))}
       </div>
 
       {/* Form: kirim pesan langsung */}
-      <div className="mx-auto mt-16 w-full max-w-2xl">
-        <p className="mb-6 text-sm font-black tracking-wider text-black dark:text-white">
+      <div className="mx-auto mt-10 w-full max-w-2xl sm:mt-16">
+        <p className="mb-4 text-xs font-black tracking-wider text-black sm:mb-6 sm:text-sm dark:text-white">
           ATAU KIRIM PESAN LANGSUNG
         </p>
 
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:gap-4">
           <input
             type="text"
             placeholder="Nama kamu"
             value={nama}
             onChange={(e) => setNama(e.target.value)}
             required
-            className="rounded-xl border-2 border-neutral-300 bg-white/80 px-4 py-3 font-semibold text-gray-900 placeholder:font-medium placeholder:text-gray-500 focus:border-black focus:outline-none dark:border-gray-600 dark:bg-gray-800/80 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-white"
+            className="rounded-xl border-2 border-neutral-300 bg-white/80 px-4 py-2.5 text-xs font-semibold text-gray-900 placeholder:font-medium placeholder:text-gray-500 focus:border-black focus:outline-none sm:py-3 sm:text-sm dark:border-gray-600 dark:bg-gray-800/80 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-white"
           />
           <textarea
             placeholder="Pesan kamu"
@@ -124,23 +125,23 @@ export default function Contact() {
             onChange={(e) => setPesan(e.target.value)}
             required
             rows={4}
-            className="rounded-xl border-2 border-neutral-300 bg-white/80 px-4 py-3 font-semibold text-gray-900 placeholder:font-medium placeholder:text-gray-500 focus:border-black focus:outline-none dark:border-gray-600 dark:bg-gray-800/80 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-white"
+            className="rounded-xl border-2 border-neutral-300 bg-white/80 px-4 py-2.5 text-xs font-semibold text-gray-900 placeholder:font-medium placeholder:text-gray-500 focus:border-black focus:outline-none sm:py-3 sm:text-sm dark:border-gray-600 dark:bg-gray-800/80 dark:text-white dark:placeholder:text-gray-400 dark:focus:border-white"
           />
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-fit rounded-xl bg-black px-6 py-3 font-extrabold text-white transition hover:bg-neutral-800 disabled:opacity-50 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+            className="w-fit rounded-xl bg-black px-5 py-2.5 text-xs font-extrabold text-white transition hover:bg-neutral-800 disabled:opacity-50 sm:px-6 sm:py-3 sm:text-sm dark:bg-white dark:text-black dark:hover:bg-gray-200"
           >
             {status === "loading" ? "Mengirim..." : "Kirim Pesan"}
           </button>
 
           {status === "success" && (
-            <p className="text-sm font-bold text-green-600 dark:text-green-400">
+            <p className="text-xs font-bold text-green-600 sm:text-sm dark:text-green-400">
               Pesan berhasil dikirim, terima kasih!
             </p>
           )}
           {status === "error" && (
-            <p className="text-sm font-bold text-red-600 dark:text-red-400">
+            <p className="text-xs font-bold text-red-600 sm:text-sm dark:text-red-400">
               Gagal mengirim pesan, coba lagi.
             </p>
           )}
