@@ -14,6 +14,7 @@ type ProyekRow = {
   category: string;
   deskripsi: string;
   image: string | null;
+  teknologi: string | null;
 };
 
 export async function generateMetadata({ params }: DetailProps): Promise<Metadata> {

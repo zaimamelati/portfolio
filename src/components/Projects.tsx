@@ -22,7 +22,6 @@ function GithubIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-// Tipe data sesuai kolom tabel Supabase
 type ProyekRow = {
   id: number;
   judul: string;
@@ -49,14 +48,13 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-blue-100 via-white to-blue-100 px-6 pb-12 pt-24 md:px-8 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+      className="relative flex min-h-screen items-center overflow-hidden"
     >
       <div className="mx-auto w-full max-w-7xl">
         {/* Header */}
         <div className="mb-16">
           <div className="mb-6 flex items-center gap-3">
             <div className="h-[2px] w-8 bg-[#18181b] dark:bg-white" />
-
             <p className="text-sm font-bold tracking-wider dark:text-white">
               PROJECTS
             </p>
@@ -73,47 +71,71 @@ export default function Projects({
         {/* Project Cards */}
         {filteredProjects.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className="group overflow-hidden rounded-2xl border border-white/10 dark:border-white/20 bg-white/5 dark:bg-white/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
-                {/* Image */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/10">
-                  {project.image && (
-                    <Image
-                      src={project.image}
-                      alt={project.judul}
-                      fill
-                      className="object-cover object-top transition duration-300 group-hover:scale-105"
-                    />
-                  )}
-                </div>
+            {filteredProjects.map((project, index) => {
+              // Mengubah string teknologi dari Supabase menjadi Array
+              const techList = project.teknologi
+                ? project.teknologi.split(",").map((tech) => tech.trim())
+                : [];
 
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-6 flex items-center justify-between">
-                    <span className="text-sm text-gray-400">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+              return (
+                <div
+                  key={project.id}
+                  className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-white/20 dark:border-white/20 bg-white/40 dark:bg-black/40 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                >
+                  <div>
+                    {/* Image */}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden bg-white/10">
+                      {project.image && (
+                        <Image
+                          src={project.image}
+                          alt={project.judul}
+                          fill
+                          className="object-cover object-top transition duration-300 group-hover:scale-105"
+                        />
+                      )}
+                    </div>
 
-                    <span className="text-sm text-gray-400 dark:text-gray-500">
-                      {project.category}
-                    </span>
+                    {/* Content */}
+                    <div className="p-6">
+                      <div className="mb-6 flex items-center justify-between">
+                        <span className="text-sm font-bold text-gray-800 dark:text-gray-200">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+
+                        <span className="text-sm font-semibold text-gray-800 dark:text-gray-300">
+                          {project.category}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-black text-gray-900 dark:text-white">
+                        {project.judul}
+                      </h3>
+
+                      <p className="mt-4 leading-7 font-medium text-gray-900 dark:text-gray-200">
+                        {project.deskripsi}
+                      </p>
+
+                      {/* Section Teknologi / Tags */}
+                      {techList.length > 0 && (
+                        <div className="mt-6 flex flex-wrap gap-2">
+                          {techList.map((tech, idx) => (
+                            <span
+                              key={idx}
+                              className="rounded-md bg-black/10 dark:bg-white/10 border border-black/10 dark:border-white/20 px-2.5 py-1 text-xs font-bold text-gray-900 dark:text-gray-100"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold dark:text-white">
-                    {project.judul}
-                  </h3>
-
-                  <p className="mt-4 leading-7 text-gray-800 dark:text-gray-300">
-                    {project.deskripsi}
-                  </p>
-
-                  <div className="mt-8 flex items-center gap-5">
+                  {/* Actions Link */}
+                  <div className="p-6 pt-0 mt-4 flex items-center gap-5">
                     <Link
                       href={`/proyek/${project.id}`}
-                      className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 transition hover:text-gray-700 dark:hover:text-gray-300"
+                      className="flex items-center gap-2 text-sm font-bold text-gray-800 dark:text-gray-300 transition hover:text-black dark:hover:text-white"
                     >
                       Detail
                       <ArrowUpRight size={16} />
@@ -124,7 +146,7 @@ export default function Projects({
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 font-medium transition hover:text-gray-500"
+                        className="flex items-center gap-2 text-sm font-extrabold text-gray-900 dark:text-white transition hover:opacity-80"
                       >
                         View project
                         <ArrowUpRight size={16} />
@@ -136,7 +158,7 @@ export default function Projects({
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-gray-400 transition hover:text-gray-700"
+                        className="flex items-center gap-2 text-sm font-bold text-gray-800 dark:text-gray-300 transition hover:text-black dark:hover:text-white"
                       >
                         <GithubIcon size={16} />
                         Github
@@ -144,12 +166,12 @@ export default function Projects({
                     )}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         ) : (
           <div className="py-16 text-center">
-            <p className="text-lg text-gray-500 dark:text-gray-400">
+            <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
               Project not found.
             </p>
           </div>

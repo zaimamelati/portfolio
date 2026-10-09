@@ -1,72 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import VideoBackground from "@/components/VideoBackground";
+import MusicPlayer from "@/components/MusicPlayer"; // 1. Import komponen
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zaimamelati.my.id"),
-
-  title: {
-    default: "Zaima Melati || Software Engineering",
-    template: "%s | Zaima Melati Putri",
-  },
-
-  description:
-    "Portfolio Zaima Melati Putri, siswa Rekayasa Perangkat Lunak dari SMK Negeri 1 Pasuruan yang tertarik pada web development, UI/UX design, database, dan teknologi digital.",
-
-  keywords: [
-    "Zaima Melati",
-    "Zaima Melati Putri",
-    "Portfolio Zaima Melati",
-    "Portofolio Zaima Melati",
-    "Zaimamelati Portfolio",
-    "siswa RPL",
-    "siswa Rekayasa Perangkat Lunak",
-    "siswa RPL Pasuruan",
-    "SMK Negeri 1 Pasuruan",
-    "web development",
-    "web developer",
-    "UI/UX design",
-    "Next.js",
-    "Supabase",
-    "Tailwind CSS",
-    "Figma",
-    "database",
-    "website portfolio",
-    "portfolio siswa RPL",
-  ],
-
-  authors: [
-    {
-      name: "Zaima Melati Putri",
-    },
-  ],
-
-  creator: "Zaima Melati Putri",
-
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-    },
-  },
-
-  openGraph: {
-    title: "Zaima Melati || Software Engineering",
-    description:
-      "Portfolio Zaima Melati Putri, siswa Rekayasa Perangkat Lunak yang tertarik pada web development, UI/UX design, database, dan teknologi digital.",
-    url: "https://www.zaimamelati.my.id",
-    siteName: "Zaima Melati Putri Portfolio",
-    locale: "id_ID",
-    type: "website",
-  },
-
-  twitter: {
-    card: "summary_large_image",
-    title: "Zaima Melati || Software Engineering",
-    description:
-      "Portfolio Zaima Melati Putri, siswa Rekayasa Perangkat Lunak yang tertarik pada web development, UI/UX design, database, dan teknologi digital.",
-  },
+  // ...metadata kamu yang sudah ada
 };
 
 export default function RootLayout({
@@ -95,7 +33,13 @@ export default function RootLayout({
         />
       </head>
 
-      <body>{children}</body>
+      <body>
+        <VideoBackground />
+        {children}
+        
+        {/* 2. Tambahkan tombol pemutar musik di sini */}
+        <MusicPlayer />
+      </body>
     </html>
   );
 }

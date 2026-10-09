@@ -54,18 +54,19 @@ export default function Navbar() {
 
   return (
     <nav className="fixed left-0 right-0 top-0 z-50 border-b border-gray-200/70 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-slate-900/80">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 md:px-8">
+      {/* Padding sedang py-3.5 (sebelumnya py-5) */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3.5 md:px-8">
 
         {/* Logo */}
         <a
           href="#home"
-          className="flex h-10 w-10 items-center justify-center rounded-lg bg-sky-300 text-sm font-bold text-black"
+          className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-300 text-xs font-bold text-black"
         >
           Mell
         </a>
 
         {/* Navigation */}
-        <div className="hidden items-center gap-10 md:flex">
+        <div className="hidden items-center gap-8 text-sm md:flex">
           {NAV_ITEMS.map((item) => (
             <a
               key={item.id}
@@ -80,15 +81,15 @@ export default function Navbar() {
         </div>
 
         {/* Right */}
-        <div className="flex items-center gap-2 md:gap-3">
+        <div className="flex items-center gap-2.5">
 
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
-            className="flex h-10 w-16 items-center justify-center rounded-full border border-gray-200 bg-white text-lg text-gray-900 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+            className="flex h-9 w-14 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-900 shadow-sm dark:border-gray-700 dark:bg-gray-800 dark:text-white"
           >
-            {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            {isDark ? <Sun size={15} /> : <Moon size={15} />}
           </button>
 
           {/* Resume */}
@@ -96,14 +97,14 @@ export default function Navbar() {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden rounded-full border border-gray-200 bg-white px-6 py-3 text-sm text-gray-900 md:block dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+            className="hidden rounded-full border border-gray-200 bg-white px-5 py-2 text-xs font-medium text-gray-900 md:block dark:border-gray-700 dark:bg-gray-800 dark:text-white"
           >
             Resume
           </a>
 
-          {/* Hire */}
-          <button className="flex items-center gap-3 rounded-full bg-black px-7 py-4 text-sm font-medium text-white dark:bg-white dark:text-black">
-            Hire Me <ArrowUpRight size={16} />
+          {/* Hire Me */}
+          <button className="flex items-center gap-2 rounded-full bg-black px-5 py-2 text-xs font-medium text-white dark:bg-white dark:text-black">
+            Hire Me <ArrowUpRight size={15} />
           </button>
 
         </div>
