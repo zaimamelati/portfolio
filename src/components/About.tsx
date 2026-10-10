@@ -31,11 +31,9 @@ export default function About() {
           <div className="max-w-2xl">
             {/* Teks Deskripsi Dibuat Lebih Jelas di Mobile */}
             <p className="text-base font-medium leading-relaxed text-gray-900 sm:text-lg dark:text-gray-100">
-              Saya adalah Zaima Melati Putri, siswa Rekayasa Perangkat Lunak
-              di SMK Negeri 1 Pasuruan yang tertarik pada pengembangan web,
-              desain UI/UX, database, dan teknologi digital. Saya terus belajar
-              dan meningkatkan kemampuan melalui tugas sekolah, latihan,
-              dan proyek pribadi.
+              Saya adalah Zaima Melati Putri, siswa Rekayasa Perangkat Lunak di SMK Negeri 1 Pasuruan 
+              dengan ketertarikan mendalam pada pengembangan web dan struktur database. Melalui berbagai 
+              proyek mandiri dan tugas sekolah, saya terus memperdalam keterampilan coding dan arsitektur perangkat lunak.
             </p>
 
             {/* Card WHAT I'M WORKING TOWARDS */}
@@ -45,9 +43,9 @@ export default function About() {
               </p>
 
               <p className="mt-2 text-sm font-medium leading-relaxed text-gray-900 sm:text-base dark:text-gray-200">
-                Menjadi Full Stack Developer yang bisa membangun produk digital
-                yang benar-benar bermanfaat, sambil terus memperdalam UI/UX dan
-                sistem backend yang scalable.
+                Mengembangkan kemampuan sebagai Software Engineer yang terbiasa menulis 
+                kode yang bersih, terstruktur, serta mampu menyelesaikan masalah lewat 
+                solusi teknis.
               </p>
             </div>
 

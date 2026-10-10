@@ -55,10 +55,8 @@ export default function Hero() {
 
           {/* Description - Diperbesar ukurannya di mobile */}
           <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-gray-900 sm:mt-8 sm:text-base md:text-lg dark:text-gray-200">
-            Saya adalah siswa Rekayasa Perangkat Lunak di SMK Negeri 1 Pasuruan
-            yang tertarik pada web development, UI/UX design, database, dan
-            teknologi digital. Saya terus belajar dan mengembangkan kemampuan
-            melalui tugas sekolah, latihan, dan berbagai proyek.
+            Saya adalah siswa Rekayasa Perangkat Lunak di SMK Negeri 1 Pasuruan 
+            yang fokus mendalami web development dan database.
           </p>
 
           {/* Buttons */}
