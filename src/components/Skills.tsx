@@ -1,8 +1,8 @@
 const skills = [
   { name: "Next.js", color: "#E34F26" },
-  { name: "TypeScript", color: "#1572B6" },
+  { name: "CSS", color: "#1572B6" },
   { name: "Tailwind CSS", color: "#06B6D4" },
-  { name: "Git & GitHub", color: "#3178C6" },
+  { name: "GitHub", color: "#A259FF" },
 ];
 
 export default function Skills() {
